@@ -6,9 +6,12 @@
 }
 
 /* COMMON  */
+body {
+    font-family: system-ui;
+    font-size: 20px;
+}
 .app-container {
-    width: 100%;
-    
+    width: 100%; 
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -16,22 +19,32 @@
 
     /* test  */
     background-color: #009688;
-    min-width: 950px;
+    min-width: 996px;
 }
 ul {
     list-style-type: none;
+}
+img {
+    width: 100%;
 }
 .box-rounded-img {
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
     /* test  */
-    width: 50px;
-    height: 50px;
-    background-color: violet;
+    width: 60px;
+    height: 60px;
+    background-color: white;
 }
+.sub-text {
+    font-size: 15px;
+    font-weight: normal;
+}
+
 /* APP: BOOLZAPP  */
+
 .boolzapp {
     width: 80%;
     height: 95%;
@@ -41,15 +54,21 @@ ul {
     background-color: white;
 }
 
-/* left side - BOX PROFILE */
+/* LEFT side - BOX PROFILE */
+
 .box-profile {
     width: 35%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
     
     /* test */
-    background-color: tomato;
+    /* background-color: tomato; */
     border-right: 1px solid black;
 }
+
+/* user profile  */
+
 .user-profile {
     display: flex;
     justify-content: space-between;
@@ -63,6 +82,18 @@ ul {
     display: flex;
     align-items: center;
 }
+.user .user-name {
+    margin-left: 10px;
+    font-weight: 600;
+}
+.user-actions i {
+    font-size: 24px;
+    color: #b1b1b1;
+    margin: 0 10px;
+}
+
+/* notifications area  */
+
 .notifications {
     display: flex;
     align-items: center;
@@ -70,24 +101,68 @@ ul {
     background-color: #8edafb;
     padding: 10px;
 }
+.notifications i {
+    color: #8edafb;
+}
+.notifications-text {
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.notifications-text .sub-text {
+    text-decoration: underline;
+    color: #6496ad;
+    cursor: pointer;
+}
+
+/* search bar  */
 .search-bar {
     text-align: center;
 
     /* test  */
     padding: 10px;
     background-color: #fafafa;
-
+    position: relative;
 }
 .search-bar input {
     width: 100%;
+    padding: 10px 0 10px 30px;
+    border-color: transparent;
 }
+.search-bar i {
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    color: #93999b;
+}
+/* contacts area  */
+
 .contacts {
     padding: 10px;
+    flex-grow: 1;
+}
+.contact-list {
+    height: 70%;
+    overflow-y: auto;
 }
 .single-contact {
     display: flex;
+    padding: 15px 0;
+
+    /* test  */
+    /* background-color: khaki; */
+    /* border-bottom: 1px solid black; */
 }
-/* right side - BOX MESSAGES */
+.single-contact.active {
+    background-color: #e9ebea;
+}
+.single-contact .contact-name {
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+/* RIGTH side - BOX MESSAGES */
+
 .box-messages {
     width: 65%;
     height: 100%;
@@ -95,7 +170,10 @@ ul {
     flex-direction: column;
 
     /* test  */
-    background-color: yellowgreen;
+    /* background-color: yellowgreen; */
+}
+.box-messages .user-name .sub-text {
+    color: #93999b;
 }
 .messages-area {
     flex-grow: 1;
@@ -106,7 +184,12 @@ ul {
 }
 .write-message-area {
     display: flex;
+    align-items: center;
     padding: 10px;
+    background-color: #eaeaea;
+}
+.write-message-area .user-actions i {
+    color: #6a7376;
 }
 .write-text-bar {
     flex-grow: 1;
@@ -114,4 +197,11 @@ ul {
 }
 .write-text-bar input {
     width: 90%;
+    padding: 20px 15px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    font-size: 16px;
+}
+.write-text-bar input::placeholder {
+    font-size: 16px;
 }

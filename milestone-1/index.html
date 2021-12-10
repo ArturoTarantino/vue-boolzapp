@@ -28,69 +28,59 @@
                         <div class="user">
                             <!-- user-avatar  -->
                             <div class="box-rounded-img">
-                                img 
+                                <img src="img/avatar_8.jpg" alt="avatar user">
                             </div>
                             <!-- user name  -->
                             <div class="user-name">
-                                namename
+                                Arturo
                             </div>
                         </div>
 
                         <!-- user-actions  -->
                         <div class="user-actions">
-                            icon//icon//icon
+
+                            <i class="fas fa-circle-notch"></i>
+                            <i class="fas fa-comment-alt"></i>
+                            <i class="fas fa-ellipsis-v"></i>
                         </div>
                     </div>
 
                     <!-- notifications area  -->
                     <div class="notifications">
+
                         <!-- icon  -->
                         <div class="box-rounded-img">
-                            icon
+                            <i class="fas fa-bell-slash"></i>
                         </div>
+
                         <!-- text  -->
-                        <div class="">
-                            texttexttexttext
-                            <div>
-                                subtext-subtext
+                        <div class="notifications-text">
+                            Ricevi notifiche di nuovi messaggi
+                            <div class="sub-text">
+                                Attiva notifiche desktop
                             </div>
                         </div>
                     </div>
 
                     <!-- search bar  -->
                     <div class="search-bar">
-                       <input type="text" placeholder="texttexttext">
+                        <i class="fas fa-search"></i>
+                       <input type="text" placeholder="Cerca o inizia una nuova chat">
                     </div>
 
                     <!-- contacts area  -->
                     <div class="contacts">
 
                         <!-- contacts list  -->
-                        <ul>
+                        <ul class="contact-list">
 
-                            <li class="single-contact">
+                            <li v-for="contact, index in contacts" @click="synchroniseAvatarContact(index)" class="single-contact" :class="{active: index === currentlyContact}">
                                 <div class="box-rounded-img">
-                                    img
+                                    <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
                                 </div>
-                                username 
-                            </li>
-                            <li class="single-contact">
-                                <div class="box-rounded-img">
-                                    img
+                                <div class="contact-name">
+                                    {{ contact.name }}
                                 </div>
-                                username 
-                            </li>
-                            <li class="single-contact">
-                                <div class="box-rounded-img">
-                                    img
-                                </div>
-                                username 
-                            </li>
-                            <li class="single-contact">
-                                <div class="box-rounded-img">
-                                    img
-                                </div>
-                                username 
                             </li>
 
                         </ul>
@@ -106,20 +96,25 @@
                         <div class="user">
                             <!-- user-avatar  -->
                             <div class="box-rounded-img">
-                                img 
+                                <img :src="'img/avatar' + contacts[currentlyContact].avatar + '.jpg'" :alt="contacts[currentlyContact].name">
                             </div>
                             <!-- user name  -->
-                            <div class="">
-                                texttexttexttext
-                                <div>
-                                    subtext-subtext
+                            <div class="user-name">
+                                {{ contacts[currentlyContact].name }}
+                                
+                                <div class="sub-text">
+                                    Ultimo accesso oggi alle
                                 </div>
                             </div>
                         </div>
 
                         <!-- user-actions  -->
                         <div class="user-actions">
-                            icon//icon//icon
+
+                            <i class="fas fa-search"></i>
+                            <i class="fas fa-paperclip"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+
                         </div>
                     </div>
 
@@ -131,16 +126,16 @@
                     <!-- input enter new message  -->
                     <div class="write-message-area">
 
-                        <div>
-                            icon
+                        <div class="user-actions">
+                            <i class="far fa-smile"></i>
                         </div>
 
                         <div class="write-text-bar">
-                            <input type="text" placeholder="textetxtext">
+                            <input type="text" placeholder="Scrivi un messaggio">
                         </div>
 
-                        <div>
-                            icon
+                        <div class="user-actions">
+                            <i class="fas fa-microphone"></i>
                         </div>
                     </div>
                 </div>
