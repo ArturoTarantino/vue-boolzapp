@@ -103,7 +103,7 @@
                                 {{ contacts[currentlyContact].name }}
                                 
                                 <div class="sub-text">
-                                    Ultimo accesso oggi alle
+                                    Ultimo accesso oggi alle {{ currentlyTime }}
                                 </div>
                             </div>
                         </div>
@@ -120,7 +120,20 @@
 
                     <!-- messages area  -->
                     <div class="messages-area">
-                        message
+                        <div class="messages">
+                            <!-- box w/ class contact message or user message  -->
+                            <div v-for="message in contacts[currentlyContact].messages"  
+                                :class="{'contact-message': message.status === 'received', 'user-message': message.status === 'sent'}">
+                                
+                                <!-- relative box text w/ class received or sent -->
+                                <div class="text" :class="{received: message.status === 'received', sent: message.status === 'sent' }">
+                                    {{ message.text }}
+                                    <span>{{message.date}}</span>
+                                </div>
+
+                            </div>
+                            
+                        </div>
                     </div>
 
                     <!-- input enter new message  -->
@@ -143,6 +156,7 @@
         </div>
     </div>
 
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

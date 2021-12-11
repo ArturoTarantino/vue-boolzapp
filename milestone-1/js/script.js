@@ -1,8 +1,9 @@
-Vue.config.devtools = true;
+// Vue.config.devtools = true;
 const app = new Vue(
     {
         el: '#root',
         data: {
+            currentlyTime: dayjs().format("HH:mm"),
             currentlyContact: 0,
             contacts: [
                 {
@@ -73,7 +74,7 @@ const app = new Vue(
                 },
                 {
                     name: 'Luisa',
-                    avatar: '_4',
+                    avatar: '_6',
                     visible: true,
                     messages: [
                         {
