@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Boolzapp</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    
+    <div id="root">
+        <div class="app-container">
+
+            <div class="boolzapp">
+
+                <!-- LEFT side -->
+                <div class="box-profile">
+
+                    <!-- user-profile -->
+                    <div class="user-profile">
+
+                        <!-- user name & avatar  -->
+                        <div class="user">
+                            <!-- user-avatar  -->
+                            <div class="box-rounded-img">
+                                <img src="img/avatar_8.jpg" alt="avatar user">
+                            </div>
+                            <!-- user name  -->
+                            <div class="user-name">
+                                Arturo
+                            </div>
+                        </div>
+
+                        <!-- user-actions  -->
+                        <div class="user-actions">
+
+                            <i class="fas fa-circle-notch"></i>
+                            <i class="fas fa-comment-alt"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+
+                    <!-- notifications area  -->
+                    <div class="notifications">
+
+                        <!-- icon  -->
+                        <div class="box-rounded-img">
+                            <i class="fas fa-bell-slash"></i>
+                        </div>
+
+                        <!-- text  -->
+                        <div class="notifications-text">
+                            Ricevi notifiche di nuovi messaggi
+                            <div class="sub-text">
+                                Attiva notifiche desktop
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- search bar  -->
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                       <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+
+                    <!-- contacts area  -->
+                    <div class="contacts">
+
+                        <!-- contacts list  -->
+                        <ul class="contact-list">
+
+                            <li v-for="contact, index in contacts" @click="synchroniseAvatarContact(index)" class="single-contact" :class="{active: index === currentlyContact}">
+                                <div class="box-rounded-img">
+                                    <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                                </div>
+                                <div class="contact-name">
+                                    {{ contact.name }}
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- RIGHT side  -->
+                <div class="box-messages">
+
+                    <div class="user-profile">
+
+                        <!-- user name & avatar  -->
+                        <div class="user">
+                            <!-- user-avatar  -->
+                            <div class="box-rounded-img">
+                                <img :src="'img/avatar' + contacts[currentlyContact].avatar + '.jpg'" :alt="contacts[currentlyContact].name">
+                            </div>
+                            <!-- user name  -->
+                            <div class="user-name">
+                                {{ contacts[currentlyContact].name }}
+                                
+                                <div class="sub-text">
+                                    Ultimo accesso oggi alle {{ currentlyTime }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- user-actions  -->
+                        <div class="user-actions">
+
+                            <i class="fas fa-search"></i>
+                            <i class="fas fa-paperclip"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+
+                        </div>
+                    </div>
+
+                    <!-- messages area  -->
+                    <div class="messages-area">
+                        <div class="messages">
+                            <!-- box w/ class contact message or user message  -->
+                            <div v-for="message in contacts[currentlyContact].messages"  
+                                :class="{'contact-message': message.status === 'received', 'user-message': message.status === 'sent'}">
+                                
+                                <!-- relative box text w/ class received or sent -->
+                                <div class="text" :class="{received: message.status === 'received', sent: message.status === 'sent' }">
+                                    {{ message.text }}
+                                    <span>{{message.date}}</span>
+                                </div>
+
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <!-- input enter new message  -->
+                    <div class="write-message-area">
+
+                        <div class="user-actions">
+                            <i class="far fa-smile"></i>
+                        </div>
+
+                        <div class="write-text-bar">
+                            <input type="text" placeholder="Scrivi un messaggio">
+                        </div>
+
+                        <div class="user-actions">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
