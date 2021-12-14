@@ -169,9 +169,11 @@ const app = new Vue(
                     if (lastMessage.length <= 12) {
                         element.lastMessage = lastMessage;
                     } else {
-                        const splittedMessage = lastMessage.split(' ');
-                        element.lastMessage = splittedMessage[0] + ' ' + splittedMessage[1] + '...';
+                        const splittedMessage = lastMessage.slice(0, 13);
+                        element.lastMessage = splittedMessage + '...';
                     }
+
+
                 });
             }
         },

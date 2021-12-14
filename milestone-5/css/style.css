@@ -141,7 +141,6 @@ img {
 .single-contact {
     display: flex;
     padding: 15px 0;
-    /* position: relative; */
 }
 .single-contact.active {
     background-color: #e9ebea;
@@ -155,9 +154,6 @@ img {
     align-items: baseline;
 }
 .single-contact .last-message {
-    /* position: absolute;
-    top: 15px;
-    right: 0; */
     font-size: 12px;
     font-weight: normal;
 }
