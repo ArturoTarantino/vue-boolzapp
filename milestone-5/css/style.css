@@ -1,0 +1,274 @@
+/* RESET  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* COMMON  */
+
+body {
+    font-family: system-ui;
+    font-size: 20px;
+}
+.app-container {
+    width: 100%; 
+    min-width: 996px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #009688 0px, #009688 15vh, #dddbd1 15vh, #d2dbdc 100%); 
+}
+ul {
+    list-style-type: none;
+}
+img {
+    width: 100%;
+}
+.box-rounded-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+    background-color: white;
+}
+.sub-text {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+/* APP: BOOLZAPP  */
+
+.boolzapp {
+    width: 80%;
+    height: 95%;
+    display: flex;
+    background-color: white;
+    
+}
+
+/* LEFT side - BOX PROFILE */
+
+.box-profile {
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #b1b1b1;  
+   
+    /* test */  
+    overflow: auto;
+}
+
+/* user profile  */
+
+.user-profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #eaeaea;
+}
+.user {
+    display: flex;
+    align-items: center;
+}
+.user .user-name {
+    margin-left: 10px;
+    font-weight: 600;
+}
+.user-actions i {
+    font-size: 24px;
+    color: #b1b1b1;
+    margin: 0 10px;
+}
+
+/* notifications area  */
+
+.notifications {
+    display: flex;
+    align-items: center;
+    background-color: #8edafb;
+    padding: 10px;
+}
+.notifications i {
+    color: #8edafb;
+}
+.notifications-text {
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.notifications-text .sub-text {
+    text-decoration: underline;
+    color: #6496ad;
+    cursor: pointer;
+}
+
+/* search bar  */
+.search-bar {
+    text-align: center;
+    padding: 10px;
+    background-color: #fafafa;
+    position: relative;
+}
+.search-bar input {
+    width: 100%;
+    padding: 10px 0 10px 30px;
+    border-color: transparent;
+}
+.search-bar i {
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    color: #93999b;
+    cursor: pointer;
+}
+/* contacts area  */
+
+.contacts {
+    padding: 10px;
+    flex-grow: 1;
+}
+.contact-list {
+    height: 70%;
+    overflow-y: auto;
+}
+.single-contact {
+    display: flex;
+    padding: 15px 0;
+    /* position: relative; */
+}
+.single-contact.active {
+    background-color: #e9ebea;
+}
+.single-contact .contact-name {
+    margin-left: 10px;
+    font-weight: 600;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.single-contact .last-message {
+    /* position: absolute;
+    top: 15px;
+    right: 0; */
+    font-size: 12px;
+    font-weight: normal;
+}
+/* RIGTH side - BOX MESSAGES */
+
+.box-messages {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    /* test  */
+    overflow: auto;
+}
+
+/* contact info (user class same as left side user-profile box)  */
+
+.box-messages .user-name .sub-text {
+    color: #93999b;
+}
+
+/* messages area  */
+
+.messages-area {
+    flex-grow: 1;
+    background-image: url('../img/mine.jpg');
+    padding: 50px 100px;
+    overflow-y: auto;
+}
+.messages .text {
+    min-width: 315px;
+    max-width: 450px;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 17px;
+    word-wrap: break-word;
+    position: relative;
+}
+.messages .text span {
+    display: block;
+    text-align: right;
+    font-size: 12px;
+    margin-top: 5px;
+}
+.messages .text i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: gray;
+}
+.text .dropdown-menu {
+    padding: 10px 20px;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 1;
+    display: none;
+}
+.text .dropdown-menu.active {
+    display: block;
+}
+.text .dropdown-menu span {
+    display: block;
+    text-align: left;
+    font-size: 15px;
+    cursor: pointer;
+}
+.text .dropdown-menu span:hover {
+    background-color: lightgray;
+}
+.contact-message {
+    display: flex;
+    margin-bottom: 15px;
+}
+.user-message {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+.text.received {
+    background-color: white;
+}
+.text.sent {
+    background-color: lightgreen;
+}
+
+/* write bar area  */
+
+.write-message-area {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #eaeaea;
+}
+.write-message-area .user-actions i {
+    color: #6a7376;
+}
+.write-text-bar {
+    flex-grow: 1;
+    text-align: center;
+}
+.write-text-bar input {
+    width: 90%;
+    padding: 20px 15px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    font-size: 16px;
+}
+.write-text-bar input::placeholder {
+    font-size: 16px;
+}
