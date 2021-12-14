@@ -109,10 +109,10 @@ const app = new Vue(
                         status: 'sent'
                     }
                     messagesArray.push(newObj);
+                    this.autoReply();
                 }
                 
                 this.newMessage = '';
-                this.autoReply();
             },
             autoReply: function() {
                 setTimeout(()=>{
