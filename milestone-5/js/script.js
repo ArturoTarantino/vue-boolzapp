@@ -5,10 +5,9 @@ const app = new Vue(
         data: {
             currentlyTime: dayjs().format("HH:mm"),
             currentlyContact: 0,
-            currentlyMessage: 0,
+            currentlyMessage: null,
             newMessage: '',
             userFilterText: '',
-            isActive: false,
             contacts: [
                 {
                     name: 'Michele',
@@ -106,7 +105,7 @@ const app = new Vue(
         methods: {
             synchroniseAvatarContact: function (index) {
                 this.currentlyContact = index;
-                this.isActive = false;
+                this.currentlyMessage = null;
             },
             addNewMessage: function () {
 
@@ -148,19 +147,18 @@ const app = new Vue(
                     }
                 });
             },
-            currentMessage: function(index) {
-                this.currentlyMessage = index;
-            },
             dropdownMenu: function(index) {
                 
-                if (this.currentlyMessage === index) {
-                    this.isActive = !this.isActive;
+                if(this.currentlyMessage === index) {
+                    this.currentlyMessage = null;
+                } else {
+                    this.currentlyMessage = index;
                 }
             },
             deleteMessage: function(index) {
                 const messagesArray = this.contacts[this.currentlyContact].messages;
                 messagesArray.splice(index, 1);
-                this.isActive = false;
+                this.currentlyMessage = null;
                 this.captureLastDataMessage();
             },
             captureLastDataMessage: function () {

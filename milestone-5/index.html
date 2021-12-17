@@ -133,12 +133,12 @@
                                 :class="{'contact-message': message.status === 'received', 'user-message': message.status === 'sent'}">
                                 
                                 <!-- relative box text w/ class received or sent -->
-                                <div @click="currentMessage(index)" class="text" :class="{received: message.status === 'received', sent: message.status === 'sent' }">
+                                <div class="text" :class="{received: message.status === 'received', sent: message.status === 'sent' }">
                                     {{ message.text }}
                                     <span>{{message.date}}</span>
 
                                     <i @click="dropdownMenu(index)" class="fas fa-chevron-down"></i>
-                                    <div class="dropdown-menu" :class="{active : currentlyMessage === index && isActive}">
+                                    <div class="dropdown-menu" :class="{active : currentlyMessage === index}">
                                         <span>Message info</span>
                                         <span @click="deleteMessage(index)">Delete message</span>
                                     </div>
