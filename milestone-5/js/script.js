@@ -1,4 +1,4 @@
-// Vue.config.devtools = true;
+Vue.config.devtools = true;
 const app = new Vue(
     {
         el: '#root',
@@ -151,9 +151,11 @@ const app = new Vue(
             currentMessage: function(index) {
                 this.currentlyMessage = index;
             },
-            dropdownMenu: function() {
-
-                this.isActive = !this.isActive;
+            dropdownMenu: function(index) {
+                
+                if (this.currentlyMessage === index) {
+                    this.isActive = !this.isActive;
+                }
             },
             deleteMessage: function(index) {
                 const messagesArray = this.contacts[this.currentlyContact].messages;

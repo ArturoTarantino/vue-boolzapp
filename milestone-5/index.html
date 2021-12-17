@@ -137,7 +137,7 @@
                                     {{ message.text }}
                                     <span>{{message.date}}</span>
 
-                                    <i @click="dropdownMenu" class="fas fa-chevron-down"></i>
+                                    <i @click="dropdownMenu(index)" class="fas fa-chevron-down"></i>
                                     <div class="dropdown-menu" :class="{active : currentlyMessage === index && isActive}">
                                         <span>Message info</span>
                                         <span @click="deleteMessage(index)">Delete message</span>
